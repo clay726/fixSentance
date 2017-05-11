@@ -48,4 +48,7 @@ dict = open("dictionary.txt")
 wl = dict.readlines()
 dict.close()
 
+spellCheck(dict, split)
+
+
 print fixSentance(stringToFix) 
