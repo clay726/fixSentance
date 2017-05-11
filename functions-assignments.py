@@ -14,13 +14,10 @@ def fixSentance(aString):
 		except IndexError:
 			print "Caught index error"
 
-stringToFix = str(sys.argv[1])
-split = splitString(stringToFix)
-
 def spellCheck(dictionary, words):
 #given a list of words in a sentance and a dictionary of correcty spelled words
 #output a list of words that are in the dictionary
-	return list(set(dictionary) & set(words)
+	#return list(set(dictionary) & set(words)
 	correctWords = []
 	for word in words:
 		for thing in dictionary:
@@ -44,11 +41,14 @@ def splitString(str):
 	print words 
 	return words
 
+stringToFix = str(sys.argv[1])
+split = splitString(stringToFix) 
+
 dict = open("dictionary.txt")
 wl = dict.readlines()
 dict.close()
 
-spellCheck(dict, split)
+spellCheck(wl, split)
 
 
 print fixSentance(stringToFix) 
