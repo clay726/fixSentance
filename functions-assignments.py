@@ -19,12 +19,19 @@ def spellCheck(dictionary, words):
 #output a list of words that are in the dictionary
 	#return list(set(dictionary) & set(words)
 	correctWords = []
+	print "Got to spell check"
 	for word in words:
+		#print word
 		for thing in dictionary:
-			if (word == thing):
-				print words
+			#print word
+			#print thing
+			#print type(word)
+			#print type(thing)
+			if ((word == thing) & (word != " ") & (word != "")):
+				print word
+				#print thing
 				correctWords += word
-
+	print "Leaving spellcheck"
 
 def splitString(str):
 	str = str.split(' ')
@@ -48,7 +55,11 @@ dict = open("dictionary.txt")
 wl = dict.readlines()
 dict.close()
 
-spellCheck(wl, split)
+wordList = []
+for word in wl:
+	wordList.append(word.strip())
 
+
+spellCheck(wordList, split)
 
 print fixSentance(stringToFix) 
