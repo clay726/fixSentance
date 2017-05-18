@@ -1,10 +1,12 @@
 import sys
+import re
 
 def fixSentance(aString):
 	strings = aString.split('.')
 	for temp in strings:
 		if temp:
 			temp = temp.replace('_',' ').strip().lower().capitalize()
+			temp = re.sub(r" +", " ", temp)
 			print temp.split(' ')
 			#temp = temp.split(' ')
 		try:
