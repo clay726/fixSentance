@@ -8,10 +8,11 @@ def fixSentance(aString):
 			temp = temp.replace('_',' ').strip().lower().capitalize()
 			temp = re.sub(r" +", " ", temp)
 			print temp.split(' ')
-			#temp = temp.split(' ')
+			#Make it so that if only lowers non names 
+			temp = temp.split(' ')
 		try:
 			if ((temp[-1] != '.') & (temp[-1] != '!') & (temp[-1] != '?')):
-				temp = temp + '.'
+				temp = (temp[-1] + '.')
 			print temp
 		except IndexError:
 			print "Caught index error"
@@ -35,6 +36,23 @@ def spellCheck(dictionary, words):
 				correctWords += word
 	print "Leaving spellcheck"
 
+def nameCheck(names, words):
+	print "Enter Namecheck"
+	correctNames = []
+	for name in words:
+		print name
+		for thing in names:
+			#print name
+			#put a capitalize function in there
+			if ((name == thing) & (name != "  ") & (name == "")):
+				print name
+				correctNames += name
+	print "Exit Namecheck"
+
+def fixAbbreviation(aString):
+	temp = aString.replace('Dr.','Doctor').replace('','')	
+
+
 def splitString(str):
 	str = str.split(' ')
 	str = ' '.join(str)
@@ -57,11 +75,20 @@ dict = open("dictionary.txt")
 wl = dict.readlines()
 dict.close()
 
+names = open("names.txt")
+#butt = names.lower()
+nl = names.readlines()
+names.close()
+
 wordList = []
 for word in wl:
 	wordList.append(word.strip())
 
+nameList = []
+for name in nl:
+	nameList.append(name.strip())
 
 spellCheck(wordList, split)
+nameCheck(nameList, split)
 
-print fixSentance(stringToFix) 
+print fixSentance(stringToFix)
