@@ -2,6 +2,7 @@ import sys
 import re
 
 def fixSentance(aString):
+#Makes many differnt gramatical error present in strings that are imputed
 	strings = aString.split('.')
 	for temp in strings:
 		if temp:
@@ -15,6 +16,7 @@ def fixSentance(aString):
 			print "Caught index error"
 
 def spellCheck(dictionary, words):
+#Checks if the word in a sentace are in the english language and if they are leaves them alone and if not deleates them
 	correctWords = []
 	#print "Got to spell check"
 	for word in words:
@@ -27,6 +29,7 @@ def spellCheck(dictionary, words):
 	
 
 def nameCheck(names, words):
+#The same as spellCheck
 	#print "Enter Namecheck"
 	correctNames = []
 	for name in names:
@@ -39,10 +42,12 @@ def nameCheck(names, words):
 	return correctNames
 
 def fixAbbreviation(aString):
+#replaces select words with the correct abbriviation
 	temp = aString.replace('Dr.','Doctor').replace('Rev.','Reverend').replace('Prof.','Professor').replace('St.','Saint').replace('Gen.','General').replace('Adm.','Admiral').replace('Cpt.','Captain').replace('Gen.','General')
 
 
 def splitString(str):
+#Makes it so that the word list can be imputed function without breaking 
 	str = str.split(' ')
 	str = ' '.join(str)
 	str = str.split('.')
@@ -83,6 +88,9 @@ y = ' '.join(y)
 a = fixSentance(y)
 
 b = fixSentance(x)
-
+print "\n"
+print "Correctly spelled words"
 print a
+print "\n"
+print "Correct Names"
 print b
